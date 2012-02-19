@@ -1,10 +1,11 @@
 {
-	"name": "simpleformat",
-	"description": "Simple format method for String",
-	"tags": ["string", "format", "template", "sprintf"], 
-	"main": "./index.js",
-	"version": "0.0.1",
-	"devDependencies": {
-		"mocha": "*"
-	}
+  "name"           : "simpleformat",
+  "description"    : "Simple format method for String",
+  "homepage"       : "https://github.com/jcayzac/stringformat.js",
+  "keywords"       : ["string", "format", "template", "util", "functional", "server", "client", "browser"],
+  "author"         : "Julien Cayzac <julien.cayzac@gmail.com>",
+  "repository"     : {"type": "git", "url": "git://github.com/jcayzac/stringformat.js.git"},
+  "main"           : "index.js",
+  "version"        : "0.0.1",
+  "devDependencies": {"mocha": "*"}
 }
