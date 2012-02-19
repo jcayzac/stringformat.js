@@ -19,7 +19,7 @@
 					obj = {},
 					arg = named ? args[0] : args[id],
 					res = []
-				if (braces_in.length == braces_out.length && braces_out.length > 1)
+				if (braces_in.length > 1 && braces_out.length > 1)
 					return match.slice(1, match.length - 1)
 				
 				property_chain = property_chain && property_chain.split('.') || []
