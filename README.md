@@ -19,32 +19,34 @@ npm install stringformat
 ```
 
 ## API
-### format(*format string*, *parameters*...)
+### stringformat(*format string*, *parameters*...)
 Returns a new string formatted according to *format string*.
 
 #### Example usage:
 ```js
-var $ = require('stringformat')
-console.log($.format("Hello, {0}!", "World"))
+var stringformat = require('stringformat')
+console.log(stringformat.format("Hello, {0}!", "World"))
 ```
 
 …would output `Hello, World!` to the console.
 
-### extendString([*methodName*])
+### stringformat.extendString([*methodName*])
 Installs the module as `String.prototype.methodName`.
 If omitted, *methodName* defaults to **format**.
 
 #### Example usage:
 ```js
-var $ = require('stringformat')
+var stringformat = require('stringformat')
 
-$.extendString('coolFormat')
+stringformat.extendString('coolFormat')
 console.log("Hello, {0}!".coolFormat("World"))
 ```
 
 …would output `Hello, World!` to the console.
 
 ## Format strings syntax
+All the examples shown below assume `stringformat.extendString()` has been called.
+
 ### Basic replacements
 The most simple replacements look like `{0}`, `{1}` and so on.
 The number is the index of the parameter.
@@ -186,6 +188,21 @@ Foo.prototype.bar = function() { return this.foo + 1 }
 If you specify a property as `foo.bar.baz` and `baz` is a function,
 `this` will be equal to `foo.bar` when it gets called.
 And if either `foo` or `bar` were functions, too, they will be evaluated in turn!
+
+```js
+"[{foo.bar.baz:4i}]".format({
+	foo: function() {
+		return {
+			bar: {
+				baz: function() {
+					return {boom: 1}
+				}
+			}
+		}
+	}
+})
+'[   1]'
+```
 
 ### Accessing properties from multiple objects
 Each replacement can be prefixed with an object index followed by a pipe symbol.
