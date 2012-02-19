@@ -50,6 +50,9 @@ module.exports = {
 	'test with negative padding': function() {
 		assert.equal($("Test [{0:-4}]", 12), 'Test [12  ]')
 	},
+	'test with padding width too small': function() {
+		assert.equal($("Test [{0:1}]", 9999), 'Test [9999]')
+	},
 	'test fancy test': function() {
 		assert.equal(
 			$("The string {0:j} is {length}-character long", "Hello, World!"),

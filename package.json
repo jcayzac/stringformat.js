@@ -7,5 +7,6 @@
   "repository"     : {"type": "git", "url": "git://github.com/jcayzac/stringformat.js.git"},
   "main"           : "index.js",
   "version"        : "0.0.3",
-  "devDependencies": {"mocha": "*"}
+  "devDependencies": {"mocha": "*"},
+  "scripts"        : { "test": "node_modules/mocha/bin/mocha --ui exports --reporter list test.js" }
 }

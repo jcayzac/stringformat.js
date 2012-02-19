@@ -203,6 +203,14 @@ Replacement specifiers can be escaped by doubling the opening and closing braces
 '{0} is [1]'
 ```
 
+## Running the tests
+Clone this repository somewhere, then do:
+
+```sh
+$ npm install
+$ npm test
+```
+
 ## License
 (The MIT License)
 
