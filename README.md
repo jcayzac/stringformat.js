@@ -52,15 +52,15 @@ The most simple replacements look like `{0}`, `{1}` and so on.
 The number is the index of the parameter.
 
 ```js
-"Hello, {1}! I feed {0} today!".format("great", "World")
-'Hello, World! I feed great today!'
+"Hello, {1}! I feel {0} today!".format("great", "World")
+'Hello, World! I feel great today!'
 ```
 
 You can also use functions:
 
 ```js
-"Hello, {1}! I feed {0} today!".format("great", function() { return "World" })
-'Hello, World! I feed great today!'
+"Hello, {1}! I feel {0} today!".format("great", function() { return "World" })
+'Hello, World! I feel great today!'
 ```
 
 ```js
@@ -72,8 +72,8 @@ var x = 0
 If a replacement cannot be resolved, the method does nothing:
 
 ```js
-"Hello, {1}! I feed {0} today!".format("great")
-'Hello, {1}! I feed great today!'
+"Hello, {1}! I feel {0} today!".format("great")
+'Hello, {1}! I feel great today!'
 ```
 
 ### Padding
