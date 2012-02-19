@@ -1,0 +1,10 @@
+{
+	"name": "simpleformat",
+	"description": "Simple format method for String",
+	"tags": ["string", "format", "template", "sprintf"], 
+	"main": "./stringformat",
+	"version": "0.0.1",
+	"devDependencies": {
+		"mocha": "*"
+	}
+}
