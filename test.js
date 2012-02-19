@@ -70,5 +70,43 @@ module.exports = {
 	,
 	'test with escaped replacements': function() {
 		assert.equal($("{{0}} is [{0}]", 1), "{0} is [1]")
+	},
+	'test with multiple functions in property chain': function() {
+		assert.equal(
+			$("{foo.bar.baz.boom}", {
+				foo: function() {
+					return {
+						bar: function() {
+							return {
+								baz: function() {
+									return {
+										boom: function() {
+											return 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}),
+			"1"
+		)
+		assert.equal(
+			$("{foo.bar.baz.boom}", {
+				foo: function() {
+					return {
+						bar: {
+							baz: function() {
+								return {
+									boom: 1
+								}
+							}
+						}
+					}
+				}
+			}),
+			"1"
+		)
 	}
 }

@@ -185,6 +185,7 @@ Foo.prototype.bar = function() { return this.foo + 1 }
 
 If you specify a property as `foo.bar.baz` and `baz` is a function,
 `this` will be equal to `foo.bar` when it gets called.
+And if either `foo` or `bar` were functions, too, they will be evaluated in turn!
 
 ### Accessing properties from multiple objects
 Each replacement can be prefixed with an object index followed by a pipe symbol.
