@@ -5,6 +5,7 @@ using replacements such as {0}, {foo}, etc.
 
 ## Features
 * Node/browser compatible.
+    * In the browser, it gets installed as `window.stringformat` (call `window.stringformat.extendString()` to install the `String.format()` method).
 * Order-independent replacements, so that format strings can be localized.
     * Example: `Hello {firstname} {lastname}` in English, `こんにちは、{lastname}{firstname}さん` in Japanese.
 * Can pass one or several objects, and use property names instead of numbers.

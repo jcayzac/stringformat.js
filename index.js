@@ -30,19 +30,17 @@
 				if (typeof arg === 'function') arg = arg.call(obj, [])
 
 				if ('i' === modifier) arg = Math.round(arg)
-				if (defined(arg)) {
-					if ('j' === modifier) arg = JSON.stringify(arg)
+				if ('j' === modifier) arg = JSON.stringify(arg)
+				if (!defined(arg)) return match
 
-					arg = String(arg)
-					if (padding < 0) {
-						res.push(arg)
-						padding = 1 - padding
-					}
-					if (padding > arg.length) res.length = padding - arg.length
-					if (!defined(res[0])) res[res.length] = arg
-					return res.join(" ")
+				arg = String(arg)
+				if (padding < 0) {
+					res.push(arg)
+					padding = 1 - padding
 				}
-				return match
+				if (padding > arg.length) res.length = padding - arg.length
+				if (!defined(res[0])) res[res.length] = arg
+				return res.join(" ")
 			})
 		},
 		main = function() {
