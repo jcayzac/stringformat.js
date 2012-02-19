@@ -194,8 +194,9 @@ And if either `foo` or `bar` were functions, too, they will be evaluated in turn
 	foo: function() {
 		return {
 			bar: {
+				value: 1,
 				baz: function() {
-					return {boom: 1}
+					return this.value
 				}
 			}
 		}

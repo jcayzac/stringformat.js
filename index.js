@@ -30,14 +30,14 @@
 				property_chain = property_chain && property_chain.split('.') || []
 				while (defined(property = property_chain.shift()) && defined(arg)) {
 					// evaluate any intermediate function
-					if (typeof arg === 'function') arg = arg.call(obj, [])
+					if (typeof arg === 'function') arg = arg.apply(obj, [])
 
 					obj = arg
 					arg = arg[property]
 				}
 
 				// Evaluate the leaf function
-				if (typeof arg === 'function') arg = arg.call(obj, [])
+				if (typeof arg === 'function') arg = arg.apply(obj, [])
 
 				// Integer modifier
 				if ('i' === modifier) arg = Math.round(arg)

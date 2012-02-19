@@ -95,15 +95,16 @@ module.exports = {
 			}),
 			"1"
 		)
+	},
+	'test with multiple functions in property chain (2)': function() {
 		assert.equal(
-			$("{foo.bar.baz.boom}", {
+			$("{foo.bar.baz}", {
 				foo: function() {
 					return {
 						bar: {
+							value: 1,
 							baz: function() {
-								return {
-									boom: 1
-								}
+								return this.value
 							}
 						}
 					}

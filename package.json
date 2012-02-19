@@ -6,7 +6,7 @@
   "author"         : "Julien Cayzac <julien.cayzac@gmail.com>",
   "repository"     : {"type": "git", "url": "git://github.com/jcayzac/stringformat.js.git"},
   "main"           : "index.js",
-  "version"        : "0.0.3",
+  "version"        : "0.0.4",
   "devDependencies": {"mocha": "*"},
   "scripts"        : { "test": "node_modules/mocha/bin/mocha --ui exports --reporter list test.js" }
 }
