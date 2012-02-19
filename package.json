@@ -3,10 +3,11 @@
   "description"    : "Simple format method for String",
   "homepage"       : "https://github.com/jcayzac/stringformat.js",
   "keywords"       : ["string", "format", "template", "util", "functional", "server", "client", "browser"],
-  "author"         : "Julien Cayzac <julien.cayzac@gmail.com>",
+  "author"         : {"name":"Julien Cayzac", "email":"julien.cayzac@gmail.com", "url":"http://julien.cayzac.name/"},
   "repository"     : {"type": "git", "url": "git://github.com/jcayzac/stringformat.js.git"},
   "main"           : "index.js",
-  "version"        : "0.0.4",
+  "version"        : "0.0.5",
+  "engines"        : {"node": ">=0.6.10"},
   "devDependencies": {"mocha": "*"},
   "scripts"        : { "test": "node_modules/mocha/bin/mocha --ui exports --reporter list test.js" }
 }
