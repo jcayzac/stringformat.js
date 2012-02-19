@@ -1,5 +1,5 @@
 {
-  "name"           : "simpleformat",
+  "name"           : "stringformat",
   "description"    : "Simple format method for String",
   "homepage"       : "https://github.com/jcayzac/stringformat.js",
   "keywords"       : ["string", "format", "template", "util", "functional", "server", "client", "browser"],
