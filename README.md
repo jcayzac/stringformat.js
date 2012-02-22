@@ -1,4 +1,6 @@
 # StringFormat
+[![Build Status](https://secure.travis-ci.org/jcayzac/stringformat.js.png?branch=master)](http://travis-ci.org/jcayzac/stringformat.js)
+
 ## Description
 This module provides a simple function that can be used to format strings,
 using replacements such as {0}, {foo}, etc.
