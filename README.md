@@ -25,7 +25,7 @@ Returns a new string formatted according to *format string*.
 #### Example usage:
 ```js
 var stringformat = require('stringformat')
-console.log(stringformat.format("Hello, {0}!", "World"))
+console.log(stringformat("Hello, {0}!", "World"))
 ```
 
 …would output `Hello, World!` to the console.
@@ -77,7 +77,7 @@ If a replacement cannot be resolved, the method does nothing:
 ```
 
 ### Padding
-If you can to pad the result, for instance to print a list of values, you can do it like this:
+If you want to pad the result, for instance to print a list of values, you can do it like this:
 
 ```js
 "User name: [{0:20}]".format("Bob Harris")
