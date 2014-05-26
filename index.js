@@ -15,6 +15,7 @@
 					// if no property chain exist, get the name instead
 					property_chain = m[4] || (named && id),
 					padding = m[6],
+					zero_fill = false,
 					modifier = m[7],
 					braces_out = m[8],
 					property,
@@ -50,13 +51,27 @@
 
 				// Apply padding and return
 				arg = String(arg)
+				if (!padding) padding = 0
+				if (padding.length > 1       &&
+				    padding.charAt(0) == "0" &&
+				    !isNaN(parseFloat(arg)))
+				{
+					zero_fill = true
+				}
 				if (padding < 0) {
 					res.push(arg)
 					padding = 1 - padding
 				}
 				if (padding > arg.length) res.length = padding - arg.length
 				if (!defined(res[0])) res[res.length] = arg
-				return res.join(" ")
+				if (zero_fill)
+				{
+					return res.join("0")
+				}
+				else
+				{
+					return res.join(" ")
+				}
 			})
 		},
 		main = function() {

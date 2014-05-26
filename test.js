@@ -112,5 +112,11 @@ module.exports = {
 			}),
 			"1"
 		)
+	},
+	'test with zero padding': function() {
+		assert.equal($("{0:05}", 12), "00012")
+	},
+	'test with zero padding and a string': function() {
+		assert.equal($("{0:05}", "two"), "  two")
 	}
 }
