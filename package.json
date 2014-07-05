@@ -21,6 +21,7 @@
                        {
 					     "name" : "John Lamp",
 						 "url"  : "http://JohnLamp.net/"
+						 }
                      ],
   "repository"     : {
                        "type": "git",
