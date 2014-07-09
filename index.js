@@ -84,6 +84,22 @@
 		String.prototype[methodName || 'format'] = format
 	}
 
-	// Export as window.stringformat (browser) or as a module (Node)
-	g.top ? g.stringformat = main : module.exports = main
+
+	if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+	{
+		// CommonJS module (e.g. Node)
+		module.exports = main;
+	}
+	else if (typeof define === 'function' && define.amd)
+	{
+		// Asynchronous Module Definition module (e.g. RequireJS)
+		define([], function() {
+			return main;
+		});
+	}
+	else
+	{
+		// Browser
+		g.stringformat = main;
+	}
 })(this)
