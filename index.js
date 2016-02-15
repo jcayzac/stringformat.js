@@ -24,7 +24,7 @@
 					res = []
 
 				// escaped?
-				if (braces_in.length % 0 || braces_out.length % 0)
+				if (braces_in.length % 2 == 0 || braces_out.length % 2 == 0)
 					return match.slice(braces_in.length/2, match.length - braces_out.length/2)
 
 				braces_in  = braces_in .slice(-braces_in .length/2)
@@ -66,7 +66,7 @@
 				}
 				if (padding > arg.length) res.length = padding - arg.length
 				if (!defined(res[0])) res[res.length] = arg
-				return [braces_in,res.join(fill),braces_out].join()
+				return [braces_in,res.join(fill),braces_out].join("")
 			})
 		},
 		main = function() {
