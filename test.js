@@ -118,5 +118,8 @@ module.exports = {
 	},
 	'test with zero padding and a string': function() {
 		assert.equal($("{0:05}", "two"), "  two")
+	},
+	'test with non-matching accolades': function() {
+		assert.equal($("{0}}", "two"), "two}")
 	}
 }
