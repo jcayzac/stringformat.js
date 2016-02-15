@@ -24,11 +24,11 @@
 					res = []
 
 				// escaped?
-				if (braces_in.length % 2 == 0 || braces_out.length % 2 == 0)
-					return match.slice(braces_in.length/2, match.length - braces_out.length/2)
+				if (braces_in.length > 1 && braces_out.length > 1)
+					return match.slice(1, match.length - 1)
 
-				braces_in  = braces_in .slice(0,Math.floor(braces_in .length/2)) // unescape
-				braces_out = braces_out.slice(0,Math.floor(braces_out.length/2)) // unescape
+				braces_in  = braces_in .slice(0,braces_in .length-1) // unescape
+				braces_out = braces_out.slice(0,braces_out.length-1) // unescape
 				// visit the properties
 				property_chain = property_chain && property_chain.split('.') || []
 				while (defined(property = property_chain.shift()) && defined(arg)) {
