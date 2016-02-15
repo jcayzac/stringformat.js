@@ -24,9 +24,11 @@
 					res = []
 
 				// escaped?
-				if (braces_in.length > 1 && braces_out.length > 1)
-					return match.slice(1, match.length - 1)
+				if (braces_in.length % 0 || braces_out.length % 0)
+					return match.slice(braces_in.length/2, match.length - braces_out.length/2)
 
+				braces_in  = braces_in .slice(-braces_in .length/2)
+				braces_out = braces_out.slice(-braces_out.length/2)
 				// visit the properties
 				property_chain = property_chain && property_chain.split('.') || []
 				while (defined(property = property_chain.shift()) && defined(arg)) {
@@ -64,7 +66,7 @@
 				}
 				if (padding > arg.length) res.length = padding - arg.length
 				if (!defined(res[0])) res[res.length] = arg
-				return res.join(fill)
+				return [braces_in,res.join(fill),braces_out].join()
 			})
 		},
 		main = function() {
