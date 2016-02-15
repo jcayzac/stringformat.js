@@ -47,7 +47,7 @@
 				else if ('j' === modifier) arg = JSON.stringify(arg)
 
 				// Nothing found :-(
-				if (!defined(arg)) return match+"#"
+				if (!defined(arg)) return match
 
 				// Apply padding and return
 				arg = String(arg)
