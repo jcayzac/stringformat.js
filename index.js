@@ -1,5 +1,5 @@
 (function(g) {
-	var FORMAT_RE = /({+)([^:{\|}]+)(\|([^:}]+))?(:(-?\d*)([ij]?))?(}+)/g,
+	var FORMAT_RE = /{({*)([^:{\|}]+)(\|([^:}]+))?(:(-?\d*)([ij]?))?(}*)}/g,
 		defined = function(x) { return typeof x !== 'undefined' },
 		format = function() {
 			var args = arguments,
@@ -24,11 +24,9 @@
 					res = []
 
 				// escaped?
-				if (braces_in.length > 1 && braces_out.length > 1)
+				if (braces_in.length > 0 && braces_out.length > 0)
 					return match.slice(1, match.length - 1)
 
-				braces_in  = braces_in .slice(0,braces_in .length-1) // unescape
-				braces_out = braces_out.slice(0,braces_out.length-1) // unescape
 				// visit the properties
 				property_chain = property_chain && property_chain.split('.') || []
 				while (defined(property = property_chain.shift()) && defined(arg)) {
@@ -49,7 +47,7 @@
 				else if ('j' === modifier) arg = JSON.stringify(arg)
 
 				// Nothing found :-(
-				if (!defined(arg)) return match
+				if (!defined(arg)) return match+"#"
 
 				// Apply padding and return
 				arg = String(arg)
