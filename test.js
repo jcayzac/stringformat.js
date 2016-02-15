@@ -128,3 +128,4 @@ module.exports = {
 	'test with non-matching accolades, issue #1': function() {
 		assert.equal($("{1{test}}", { test: 1 }), "{11}")
 	}
+}
