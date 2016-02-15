@@ -27,8 +27,8 @@
 				if (braces_in.length % 2 == 0 || braces_out.length % 2 == 0)
 					return match.slice(braces_in.length/2, match.length - braces_out.length/2)
 
-				braces_in  = braces_in .slice(-braces_in .length/2)
-				braces_out = braces_out.slice(-braces_out.length/2)
+				braces_in  = braces_in .slice(-Math.floor(braces_in .length/2)) // unescape
+				braces_out = braces_out.slice(-Math.floor(braces_out.length/2)) // unescape
 				// visit the properties
 				property_chain = property_chain && property_chain.split('.') || []
 				while (defined(property = property_chain.shift()) && defined(arg)) {
