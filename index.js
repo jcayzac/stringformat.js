@@ -1,5 +1,5 @@
 (function(g) {
-	var FORMAT_RE = /({+)([^:{\|}]+)(\|([^:}]+))?(:(-?\d*)([ij]?))?(}+)/g,
+	var FORMAT_RE = /{({*)([^:{\|}]+)(\|([^:}]+))?(:(-?\d*)([ij]?))?(}*)}/g,
 		defined = function(x) { return typeof x !== 'undefined' },
 		format = function() {
 			var args = arguments,
@@ -15,7 +15,7 @@
 					// if no property chain exist, get the name instead
 					property_chain = m[4] || (named && id),
 					padding = m[6],
-					zero_fill = false,
+					fill = " ",
 					modifier = m[7],
 					braces_out = m[8],
 					property,
@@ -24,7 +24,7 @@
 					res = []
 
 				// escaped?
-				if (braces_in.length > 1 && braces_out.length > 1)
+				if (braces_in.length > 0 && braces_out.length > 0)
 					return match.slice(1, match.length - 1)
 
 				// visit the properties
@@ -56,7 +56,7 @@
 				    padding.charAt(0) == "0" &&
 				    !isNaN(parseFloat(arg)))
 				{
-					zero_fill = true
+					fill = "0"
 				}
 				if (padding < 0) {
 					res.push(arg)
@@ -64,14 +64,7 @@
 				}
 				if (padding > arg.length) res.length = padding - arg.length
 				if (!defined(res[0])) res[res.length] = arg
-				if (zero_fill)
-				{
-					return res.join("0")
-				}
-				else
-				{
-					return res.join(" ")
-				}
+				return [braces_in,res.join(fill),braces_out].join("")
 			})
 		},
 		main = function() {
